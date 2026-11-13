@@ -119,3 +119,9 @@ token.json             Saved Gmail sign-in (not in git)
 - **Tavily:** the free tier gives about 1,000 credits a month. An issue uses about 6–8 credits.
 - **Gmail:** a personal account can send to about 500 recipients a day.
 - **Infographics and writing:** free. Templates render locally and Claude writes the text in the chat.
+
+## License
+
+Released under the [MIT License](LICENSE). Copyright (c) 2026 m-thakei.
+
+Icons are from [Lucide](https://lucide.dev), licensed under the ISC License. They are downloaded when the tools run and are not stored in this repository.
