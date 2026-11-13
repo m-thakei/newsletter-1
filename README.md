@@ -8,6 +8,12 @@ It follows the **WAT framework** (Workflows, Agents, Tools) described in [CLAUDE
 - **Agent:** Claude Code reads the workflow, writes the content, runs the tools in order and asks for your approval before anything is sent.
 - **Tools** (`tools/`): Python scripts that do the actual work in a repeatable way.
 
+## Example issue
+
+A real test issue made with this pipeline, on the topic "AI agents in the enterprise". Click it for the full-size image.
+
+<a href="docs/images/example-issue.png"><img src="docs/images/example-issue.png" alt="Example issue of The Agent Brief newsletter, with an executive summary, two infographics, leadership questions and sources" width="480"></a>
+
 ## How an issue is made
 
 | Step | What happens | Tool |
