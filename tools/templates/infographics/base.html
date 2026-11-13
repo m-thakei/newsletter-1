@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: {{ theme.navy }};
+    --accent: {{ theme.accent }};
+    --ink: #1F2937;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --soft: {{ theme.soft }};
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #FFFFFF; font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: var(--ink); }
+  .card { width: 600px; padding: 20px 26px 14px; background: #FFFFFF; border-top: 5px solid var(--navy); }
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  h1 { font-size: 19px; line-height: 1.25; font-weight: 700; color: var(--navy); }
+  .subtitle { font-size: 13px; line-height: 1.45; color: var(--muted); margin-top: 6px; }
+  .body { margin-top: 14px; }
+  .icon svg { width: 100%; height: 100%; stroke: currentColor; }
+  .source { margin-top: 12px; padding-top: 7px; border-top: 1px solid var(--line); font-size: 10.5px; color: var(--muted); }
+  {% block style %}{% endblock %}
+</style>
+</head>
+<body>
+  <div class="card">
+    {% if eyebrow %}<div class="eyebrow">{{ eyebrow }}</div>{% endif %}
+    <h1>{{ title }}</h1>
+    {% if subtitle %}<div class="subtitle">{{ subtitle }}</div>{% endif %}
+    <div class="body">{% block body %}{% endblock %}</div>
+    {% if source %}<div class="source">Source: {{ source }}</div>{% endif %}
+  </div>
+</body>
+</html>

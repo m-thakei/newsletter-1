@@ -1,0 +1,44 @@
+{
+  "name": "The AI Brief",
+  "tagline": "Strategic intelligence for leadership",
+  "issue": "Issue 1",
+  "date": "13 November 2026",
+  "subject": "The AI Brief: from pilots to production",
+  "preheader": "Template test issue. Figures are illustrative only.",
+  "title": "Enterprise AI moves from experimentation to execution",
+  "summary": [
+    "This is a **template test**. All figures are illustrative and not sourced.",
+    "Budgets are concentrating in customer service and IT operations.",
+    "Governance, not technology, is now the main constraint on scale."
+  ],
+  "sections": [
+    {
+      "heading": "Where the money is going",
+      "paragraphs": [
+        "Spending patterns indicate that organisations are prioritising functions with measurable, near-term returns. Customer service leads, followed by IT operations, where automation reduces cost directly and outcomes are easy to track.",
+        "Leaders should expect pressure to show returns within two to three quarters. Programmes that cannot demonstrate value in that window are increasingly being paused or consolidated."
+      ],
+      "infographic": {"path": ".tmp/infographics/bar_chart.png", "alt": "Bar chart of AI budget share by function"}
+    },
+    {
+      "heading": "Governance is the new bottleneck",
+      "paragraphs": [
+        "Most organisations now have the technical capacity to deploy AI at scale. Far fewer have the policies, ownership structures and controls needed to do so safely. Boards are beginning to ask for clear accountability."
+      ],
+      "infographic": {"path": ".tmp/infographics/process.png", "alt": "Four steps: assess, govern, deploy, measure"}
+    },
+    {
+      "heading": "Implications for leadership",
+      "bullets": [
+        "Assign a single executive owner for AI risk and value.",
+        "Fund fewer, larger programmes tied to explicit metrics.",
+        "Review vendor contracts for data rights and exit terms."
+      ]
+    }
+  ],
+  "closing": "The advantage now belongs to organisations that can govern AI as well as they can build it.",
+  "sources": [
+    {"title": "Example source one", "url": "https://example.com/one"},
+    {"title": "Example source two", "url": "https://example.com/two"}
+  ]
+}

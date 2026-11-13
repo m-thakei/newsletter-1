@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block style %}
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .col { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .col .head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--navy); color: #FFFFFF; }
+  .col:nth-child(2) .head { background: var(--accent); }
+  .col .head .icon { width: 20px; height: 20px; flex: none; }
+  .col .head .h { font-size: 14px; font-weight: 600; }
+  .col ul { list-style: none; padding: 12px 14px 14px; }
+  .col li { font-size: 12.5px; line-height: 1.4; padding: 6px 0 6px 16px; position: relative; border-bottom: 1px solid var(--line); }
+  .col li:last-child { border-bottom: 0; }
+  .col li::before { content: ""; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .col:nth-child(2) li::before { background: var(--navy); }
+{% endblock %}
+{% block body %}
+<div class="cols">
+  {% for c in columns %}
+  <div class="col">
+    <div class="head">{% if c.icon %}<div class="icon">{{ icons[c.icon] }}</div>{% endif %}<div class="h">{{ c.heading }}</div></div>
+    <ul>{% for pt in c.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{
+  "template": "key_figures",
+  "eyebrow": "At a glance",
+  "title": "Enterprise AI adoption has moved from pilot to production",
+  "subtitle": "Illustrative figures for template testing only.",
+  "source": "Example data",
+  "items": [
+    {"icon": "trending-up", "value": "72%", "label": "Firms using AI in at least one function", "note": "Up from 55% a year earlier"},
+    {"icon": "wallet", "value": "$4.2M", "label": "Median annual AI budget", "note": "Large enterprises"},
+    {"icon": "users", "value": "1 in 3", "label": "Boards with an AI committee"},
+    {"icon": "shield-check", "value": "41%", "label": "Have a formal AI risk policy"}
+  ]
+}

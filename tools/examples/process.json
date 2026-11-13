@@ -1,0 +1,11 @@
+{
+  "template": "process",
+  "eyebrow": "Roadmap",
+  "title": "A four-step path to responsible deployment",
+  "items": [
+    {"icon": "search", "label": "Step 1", "title": "Assess", "text": "Inventory use cases and risk exposure"},
+    {"icon": "scale", "label": "Step 2", "title": "Govern", "text": "Set policy, ownership and controls"},
+    {"icon": "rocket", "label": "Step 3", "title": "Deploy", "text": "Scale proven pilots with guardrails"},
+    {"icon": "chart-line", "label": "Step 4", "title": "Measure", "text": "Track value, cost and incidents"}
+  ]
+}

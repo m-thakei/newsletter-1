@@ -1,0 +1,14 @@
+{
+  "template": "bar_chart",
+  "eyebrow": "Investment",
+  "title": "Where AI budgets are going",
+  "subtitle": "Share of spend by function",
+  "source": "Example data",
+  "items": [
+    {"label": "Customer service", "value": 31, "display": "31%", "highlight": true},
+    {"label": "IT operations", "value": 24, "display": "24%"},
+    {"label": "Marketing & sales", "value": 19, "display": "19%"},
+    {"label": "Finance", "value": 14, "display": "14%"},
+    {"label": "HR", "value": 8, "display": "8%"}
+  ]
+}

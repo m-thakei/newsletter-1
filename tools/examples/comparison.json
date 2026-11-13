@@ -1,0 +1,9 @@
+{
+  "template": "comparison",
+  "title": "Build versus buy",
+  "subtitle": "Key trade-offs for leadership teams",
+  "columns": [
+    {"icon": "hammer", "heading": "Build in-house", "points": ["Full control of data and IP", "Higher upfront cost", "Requires scarce talent", "Slower time to value"]},
+    {"icon": "shopping-cart", "heading": "Buy from vendors", "points": ["Faster deployment", "Predictable subscription cost", "Vendor lock-in risk", "Less differentiation"]}
+  ]
+}
