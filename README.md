@@ -46,16 +46,25 @@ Example specs are in [tools/examples/](tools/examples/).
 
 ## Setup
 
-Requirements: macOS with Homebrew, Python 3.14 and Google Chrome (used to render the infographics).
+Works on Windows, macOS and Linux. You need **Python 3.10 or newer**. The infographics are rendered with a headless browser: an installed Google Chrome is used if there is one, otherwise Playwright's Chromium.
 
-```bash
-brew install python@3.14
-/opt/homebrew/bin/python3.14 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-cp .env.example .env
-```
+1. Create and activate a virtual environment:
 
-Then fill in `.env`:
+   ```bash
+   python -m venv .venv
+   ```
+
+   - **macOS / Linux:** `source .venv/bin/activate`
+   - **Windows (PowerShell):** `.venv\Scripts\Activate.ps1`
+
+2. Install the requirements, plus a browser for rendering if you don't have Chrome:
+
+   ```bash
+   pip install -r requirements.txt
+   python -m playwright install chromium
+   ```
+
+3. Copy `.env.example` to `.env` and fill it in:
 
 | Variable | What it is |
 |---|---|
@@ -81,13 +90,13 @@ Open the project in Claude Code and ask for an issue, for example:
 
 Claude follows [workflows/newsletter.md](workflows/newsletter.md). It shows you the preview, sends a test to your own address, and sends to the recipients only after you approve.
 
-The tools can also be run by hand. Run each one with `--help` for details:
+The tools can also be run by hand, with the virtual environment activated. Run each one with `--help` for details:
 
 ```bash
-.venv/bin/python tools/research_topic.py "EU AI Act" --query "enforcement timeline"
-.venv/bin/python tools/render_infographic.py tools/examples/key_figures.json
-.venv/bin/python tools/build_newsletter_html.py tools/examples/content.json
-.venv/bin/python tools/send_gmail.py .tmp/issues/<issue>/manifest.json --dry-run
+python tools/research_topic.py "EU AI Act" --query "enforcement timeline"
+python tools/render_infographic.py tools/examples/key_figures.json
+python tools/build_newsletter_html.py tools/examples/content.json
+python tools/send_gmail.py .tmp/issues/<issue>/manifest.json --dry-run
 ```
 
 ## Project layout

@@ -1,7 +1,7 @@
 """Build the newsletter email from a content JSON file.
 
 Usage:
-    .venv/bin/python tools/build_newsletter_html.py content.json
+    python tools/build_newsletter_html.py content.json
 
 Produces, in .tmp/issues/<slug>/:
     email.html     the email body; images referenced as cid: (inline attachments)
@@ -33,7 +33,7 @@ import json
 import re
 from pathlib import Path
 
-from _common import ROOT, TEMPLATES, TMP, fail, slugify
+from _common import ROOT, TEMPLATES, TMP, fail, launch_browser, slugify
 
 from jinja2 import Environment, FileSystemLoader
 from markupsafe import Markup, escape
@@ -81,10 +81,7 @@ def pdf_pages(html_path, pdf_path):
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
-        try:
-            browser = p.chromium.launch(channel="chrome")
-        except Exception:
-            browser = p.chromium.launch()
+        browser = launch_browser(p)
         page = browser.new_page()
         page.goto(html_path.as_uri(), wait_until="networkidle")
         page.pdf(path=str(pdf_path), format="A4", print_background=True, prefer_css_page_size=True)

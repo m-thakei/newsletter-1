@@ -1,7 +1,7 @@
 """Research a topic with the Tavily search API and save the results as JSON.
 
 Usage:
-    .venv/bin/python tools/research_topic.py "AI regulation in the EU" \
+    python tools/research_topic.py "AI regulation in the EU" \
         --query "EU AI Act enforcement timeline 2026" \
         --query "EU AI Act impact on enterprises statistics"
 

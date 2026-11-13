@@ -2,7 +2,7 @@
 in tools/templates/infographics/ and free Lucide icons (ISC license).
 
 Usage:
-    .venv/bin/python tools/render_infographic.py spec.json [--out path.png]
+    python tools/render_infographic.py spec.json [--out path.png]
 
 Spec format (one of four templates):
     {
@@ -29,7 +29,7 @@ import argparse
 import json
 import re
 
-from _common import TEMPLATES, TMP, fail
+from _common import TEMPLATES, TMP, fail, launch_browser
 
 import requests
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
@@ -111,10 +111,7 @@ def screenshot(html, out_path):
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
-        try:
-            browser = p.chromium.launch(channel="chrome")  # use installed Google Chrome
-        except Exception:
-            browser = p.chromium.launch()  # fall back to Playwright's Chromium
+        browser = launch_browser(p)
         page = browser.new_page(viewport={"width": 600, "height": 800}, device_scale_factor=2)
         page.set_content(html, wait_until="networkidle")
         page.evaluate("document.fonts.ready")

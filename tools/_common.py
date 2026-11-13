@@ -18,6 +18,19 @@ def slugify(text: str, max_len: int = 60) -> str:
     return slug[:max_len].rstrip("-") or "untitled"
 
 
+def launch_browser(playwright):
+    """Start a headless browser: an installed Google Chrome if there is one,
+    otherwise Playwright's own Chromium (`python -m playwright install chromium`)."""
+    try:
+        return playwright.chromium.launch(channel="chrome")
+    except Exception:
+        pass
+    try:
+        return playwright.chromium.launch()
+    except Exception:
+        fail("No browser available to render images. Run: python -m playwright install chromium")
+
+
 def fail(message: str, code: int = 1) -> None:
     print(f"ERROR: {message}", file=sys.stderr)
     sys.exit(code)

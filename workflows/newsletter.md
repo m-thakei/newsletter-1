@@ -28,7 +28,7 @@ with two infographics, and send it through Gmail. Runs on demand in chat.
 
 ### 1. Research
 ```
-.venv/bin/python tools/research_topic.py "<topic>" --query "<angle 1>" --query "<angle 2>"
+python tools/research_topic.py "<topic>" --query "<angle 1>" --query "<angle 2>"
 ```
 - Add 2–3 `--query` angles: latest developments, key statistics, business impact.
 - For fast-moving topics add `--news --time-range month`.
@@ -50,22 +50,22 @@ with two infographics, and send it through Gmail. Runs on demand in chat.
   | `comparison` | two options side by side | 2 columns |
 - Examples: `tools/examples/*.json`. Icons are Lucide names (lucide.dev/icons).
 ```
-.venv/bin/python tools/render_infographic.py .tmp/infographics/<slug>-1.json
+python tools/render_infographic.py .tmp/infographics/<slug>-1.json
 ```
 - Look at each PNG before using it.
 
 ### 4. Build the email
 ```
-.venv/bin/python tools/build_newsletter_html.py .tmp/issues/<slug>.content.json
+python tools/build_newsletter_html.py .tmp/issues/<slug>.content.json
 ```
 - Fix any word-count WARNING by tightening copy, then rebuild.
 - Show the user `preview.html` (or `preview.pdf`) and get approval of the content.
 
 ### 5. Send
-1. Test to the sender: `.venv/bin/python tools/send_gmail.py .tmp/issues/<issue>/manifest.json`
+1. Test to the sender: `python tools/send_gmail.py .tmp/issues/<issue>/manifest.json`
 2. Ask the user to check the test email in Gmail, and confirm this issue's recipients.
 3. Only after the user explicitly approves, send to the recipients they gave:
-   `.venv/bin/python tools/send_gmail.py <manifest> --to "a@example.com, b@example.com"`
+   `python tools/send_gmail.py <manifest> --to "a@example.com, b@example.com"`
 
 ## Edge cases and lessons learned
 - **Lucide icon renamed:** `line-chart` is now `chart-line`. If an icon 404s, search lucide.dev for the current name.
@@ -73,8 +73,11 @@ with two infographics, and send it through Gmail. Runs on demand in chat.
 - **First Gmail send:** opens a browser for OAuth consent; `token.json` is saved and reused.
   If the token is revoked or expires, delete `token.json` and send again.
 - **Sending limit:** a personal Gmail account sends to about 500 recipients a day.
-- **Python:** the project uses Homebrew Python 3.14 in `.venv`. The macOS system Python (3.9)
-  is end-of-life and printed OpenSSL warnings; don't use it.
+- **Environment:** run every command with the project's virtual environment (`.venv`) activated,
+  so `python` uses the installed requirements. Use a currently supported Python 3 release;
+  end-of-life versions trigger warnings from the Google libraries.
+- **No browser found:** the image tools use an installed Google Chrome if present, otherwise
+  Playwright's Chromium. If neither is available, run `python -m playwright install chromium`.
 - **A4 limit applies to text only:** two full-size infographics take about half an A4 page at
   email width, so a full issue prints to about 1.5 pages. That is expected; the user decided
   the A4 limit is for the written text.

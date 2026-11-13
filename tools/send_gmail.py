@@ -4,13 +4,13 @@ Recipients are given on demand for each issue; they are not stored in .env.
 
 Usage:
     # Test send to yourself (GMAIL_SENDER) - the default
-    .venv/bin/python tools/send_gmail.py .tmp/issues/<slug>/manifest.json
+    python tools/send_gmail.py .tmp/issues/<slug>/manifest.json
 
     # Send to this issue's recipients (comma-separated), after the test is approved
-    .venv/bin/python tools/send_gmail.py <manifest> --to "a@example.com, b@example.com"
+    python tools/send_gmail.py <manifest> --to "a@example.com, b@example.com"
 
     # Build the message without sending; saves message.eml for inspection
-    .venv/bin/python tools/send_gmail.py <manifest> --dry-run
+    python tools/send_gmail.py <manifest> --dry-run
 
 Each recipient gets their own copy, so addresses are never exposed.
 Infographics are attached inline (Content-ID), which Gmail displays reliably.
